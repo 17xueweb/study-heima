@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <button>按钮</button>
+    <div></div>
+    <script>
+        $("button").click(function() {
+            $("div").animate({
+                left: 500,
+                top: 100,
+                opacity: .4, // 不透明度修改为原先的40%
+                width: 500
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>

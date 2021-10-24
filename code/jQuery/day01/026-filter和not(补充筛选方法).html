@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div>123</div>
+    <div class="box">456</div>
+    <script>
+        $(function() {
+            //筛选出有类为.box的
+            // $("div").filter(".box").css("background", "red");
+            //筛选出类不是.box的
+            $("div").not(".box").css("background", "red");
+        })
+    </script>
+</body>
+
+</html>

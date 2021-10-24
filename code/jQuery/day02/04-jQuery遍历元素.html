@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        $(function() {
+            // $("div").css("color", "red");
+            // 如果针对于同一类元素做不同操作，需要用到遍历元素（类似for，但是比for强大）
+            //计算总和定义变量
+            var sum = 0;
+            var arr = ["red", "green", "blue"];
+            // 1. each() 方法遍历元素
+            $("div").each(function(index, domEle) {
+                //回调函数第一个参数一定是索引号 可以自己指定索引号名称
+                //回调函数第二个参数一定是 dom元素对象
+                $(domEle).css("color", arr[index]);
+                // console.log($(domEle).text());
+                //计算三个div文字总和
+                sum += parseInt($(domEle).text());
+            });
+            console.log(sum); //6
+
+            console.log('--------------------------------------');
+            //第二种遍历方式 $.each() 方法遍历 主要用于遍历数据，处理数据
+            //可以遍历数组
+            $.each(arr, function(index, ele) {
+                console.log(index); // 0 1 2
+                console.log(ele); // red green blue
+            });
+            console.log('--------------------------------------');
+            //也可以遍历对象
+            $.each({
+                name: "andy",
+                age: 18
+            }, function(i, ele) {
+                console.log(i); // 输出的是 name age 属性名
+                console.log(ele); //输出的是 andy 18 属性值
+            });
+        })
+    </script>
+</body>
+
+</html>

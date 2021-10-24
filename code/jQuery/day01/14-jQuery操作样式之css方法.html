@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        $(function() {
+            // 1. 参数只写属性名 则返回属性值
+            console.log($("div").css("width")); //200px
+            // 2. 参数是属性名和属性值是设置
+            // $("div").css("width", "400px");
+            $("div").css("width", 400); //如果后面的值是数字 可以不用跟单位和引号
+            // 3. 参数可以是对象形式，设置多组样式，可以不加引号
+            $("div").css({
+                width: 500,
+                height: 500,
+                backgroundColor: "blue"
+                    //如果是复合属性必须采取驼峰命名法,如果值不是数字，则需要加引号
+            });
+        })
+    </script>
+</body>
+
+</html>
