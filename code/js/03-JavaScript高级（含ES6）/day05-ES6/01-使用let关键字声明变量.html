@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用let关键字声明变量</title>
+</head>
+
+<body>
+    <script>
+        // let 关键字是用来声明变量的
+        // (1)使用let关键字声明的变量具有 块级 作用域
+        if (true) {
+            let b = 20;
+            console.log(b); // 20
+            if (true) {
+                let c = 30;
+            }
+            console.log(c); // c is not defined
+        }
+        console.log(b); // b is not defined
+
+        // (2) 在一个大括号中，使用let关键字声明的变量才具有块级作用域，var关键字是不具备这个特点的
+        if (true) {
+            let num = 100;
+            var abc = 200;
+        }
+        console.log(abc); // 200
+        //num在if语句外面是访问不到的
+        console.log(num); // num is not defined
+
+        //(3) 防止循环变量变成全局变量
+        for (var i = 0; i < 5; i++) {
+
+        }
+        console.log(i); // 5
+
+        for (let i = 0; i < 5; i++) {
+
+        }
+        console.log(i); // i is not defined
+
+        //(4) 使用let关键字声明的变量没有变量提升
+        //let关键字 不支持先使用 再声明
+        console.log(d); // d is not defined
+        let d = 10;
+
+        //(5) 使用let关键字声明变量具有暂时性死区特性
+        var e = 10;
+        if (true) {
+            //在块级作用内声明的变量就和块级作用域整体进行绑定不受外部影响
+            //这个e不会像上一级 去查找num 因为在块级作用域中使用了let关键字声明e了
+            //这个e就和块级作用域进行了整体绑定了
+            console.log(e); // e is not defined
+            let e = 20;
+        }
+    </script>
+</body>
+
+</html>

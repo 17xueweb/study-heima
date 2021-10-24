@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 量词是设定某个模式出现的次数 
+        //这个模式用户只能输入英文字母 数字 下划线 短横线但是有边界符和[] 这就限定了只能多选1
+        var reg = /^[a-zA-Z0-9_-]$/;
+        console.log(reg.test('a')); //true
+        console.log(reg.test('8')); //true
+        console.log(reg.test('18')); //false
+        console.log(reg.test('aa')); //false
+
+        console.log('-----------------------------');
+        var reg1 = /^[a-zA-Z0-9_-]{6,16}$/;
+        console.log(reg1.test('andy-red')); //true
+        console.log(reg1.test('andy_red')); //true
+        console.log(reg1.test('andy007')); //true
+        console.log(reg1.test('andy!007')); //false
+    </script>
+</body>
+
+</html>

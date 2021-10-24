@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>剩余参数</title>
+</head>
+
+<body>
+    <script>
+        // 1.剩余参数语法允许我们将一个不定数量的参数表示为一个数组
+        const sum = (...args) => {
+            let total = 0;
+            args.forEach(item => total += item);
+            return total;
+        }
+
+        console.log(sum(10, 20));
+        console.log(sum(10, 20, 30));
+
+        // 2.剩余参数和解构配合使用
+        let array = ["张三", "李四", "王五"];
+        let [s1, ...s2] = array;
+        console.log(s1); // 张三
+        console.log(s2); //["李四", "王五"]
+    </script>
+</body>
+
+</html>

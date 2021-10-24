@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = '<div>{{name}}今年{{ age }}岁了</div>'
+            //提取分组一定要加小括号
+        var pattern = /{{\s*([a-zA-Z]+)\s*}}/;
+        var patternResult = null;
+        //这个是赋值操作 当pattern.exec(str)第三次匹配则为null
+        //null则while条件不成立
+        while (patternResult = pattern.exec(str)) {
+            str = str.replace(patternResult[0], patternResult[1]);
+        }
+        console.log(str); // <div>name今年age岁了</div>
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //预解析：首先把变量提升到作用域最前面，不提升赋值 然后按照代码书写的顺序从上往下执行
+        //举例1
+        console.log(num); //undefined
+        var num = 10;
+
+        //预解析操作过程：
+        // var num;
+        // console.log(num);
+        // num = 10;
+
+
+        //举例2
+        fun(); // 报错：fun is not a function
+
+        var fun = function() {
+            console.log(222);
+
+        }
+
+        //预解析操作过程：
+        // var fun;
+        //fun();
+        // fun = function() {
+        //     console.log(222);
+
+        // }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

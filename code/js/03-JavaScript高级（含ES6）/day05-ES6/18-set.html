@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const s1 = new Set();
+        console.log(s1.size); // 0
+
+        const s2 = new Set(['a', 'b']);
+        console.log(s2.size); // 2
+
+        const s3 = new Set(['a', 'a', 'b', 'b']);
+        console.log(s3.size); // 2
+        //数组去重
+        var arry = [...s3];
+        console.log(arry); // ["a", "b"]
+    </script>
+</body>
+
+</html>

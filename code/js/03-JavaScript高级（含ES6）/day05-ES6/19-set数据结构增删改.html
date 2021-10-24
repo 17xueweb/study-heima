@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const s1 = new Set();
+        //(1)向set结构中添加值， 使用add方法
+        s1.add('a').add('b');
+        console.log(s1.size); // 2
+        //(2) 从set结构中删除值 使用delete方法
+        const r1 = s1.delete('a')
+        console.log(s1.size); // 1
+        console.log(r1); // true
+        //(3) 判断某一个值是否是set数据结构中的成员 使用has
+        const r2 = s1.has('b');
+        console.log(r2); // true
+        //(4)清空set数据结构中的值 使用clear方法
+        s1.clear();
+        console.log(s1.size); // 0
+    </script>
+</body>
+
+</html>

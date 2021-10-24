@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var params = location.search;
+        console.log(params);
+        //1.先去掉?
+        //substr 第二个参数不写 默认截取到最后
+        //substr('起始的位置','截取的字符')
+        params = params.substr(1);
+        //2.利用=把字符串分割为数组 
+        var arr = params.split('=')
+        var div = document.querySelector('div');
+        //3.把数据写入到div中
+        div.innerHTML = arr[1] + '欢迎您';
+    </script>
+</body>
+
+</html>

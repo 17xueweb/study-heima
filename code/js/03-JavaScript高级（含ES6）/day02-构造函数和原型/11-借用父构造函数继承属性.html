@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //借用父构造函数继承属性
+        function Father(uname, age) {
+            //this指向父构造函数的对象实例
+            this.uname = uname;
+            this.age = age;
+        }
+
+        function Son(uname, age) {
+            //this指向子构造函数的对象实例
+            //这句话的意思是：把Father中的this指向子构造函数中的this
+            //现在子构造函数就能使用父构造函数的uname和age了
+            Father.call(this, uname, age);
+        }
+
+        var son = new Son("刘德华", 30);
+        console.log(son);
+    </script>
+</body>
+
+</html>

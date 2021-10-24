@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML数组方式效率测试</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            var d1 = +new Date();
+            var array = [];
+            for (var i = 0; i <= 1000; i++) {
+                //把1000个div生成完 放到数组中
+                array.push('<div style="width:100px; height:2px; border:1px solid blue;"></div>');
+            }
+
+            document.body.innerHTML = array.join('');
+
+            var d2 = +new Date();
+            console.log(d2 - d1); // 8
+        }
+        fn();
+    </script>
+</body>
+
+</html>

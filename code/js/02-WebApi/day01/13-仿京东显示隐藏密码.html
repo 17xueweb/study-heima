@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav {
+            position: relative;
+            width: 400px;
+            margin: 100px auto;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .nav input {
+            width: 370px;
+            height: 30px;
+            border: 0;
+            outline: none;
+        }
+        
+        .nav img {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="nav">
+        <lable>
+            <img src="images/close.png" id="eye">
+        </lable>
+        <input type="password" id="pwd">
+    </div>
+    <script>
+        //1. 获取元素
+        var eye = document.getElementById('eye');
+        var pwd = document.getElementById('pwd');
+        //以后只要遇到一个按钮点多次就通过这个flag变量来解决
+        var flag = 0;
+        eye.onclick = function() {
+            //点击一次之后，flag一定要变化
+            if (flag == 0) {
+                pwd.type = 'text';
+                eye.src = './images/open.png';
+                flag = 1; //赋值操作
+            } else {
+                pwd.type = 'password';
+                eye.src = './images/close.png';
+                flag = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

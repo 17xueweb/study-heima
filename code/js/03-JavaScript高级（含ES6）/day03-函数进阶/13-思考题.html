@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 思考题 1：
+
+        var name = "The Window";
+        var object = { //对象
+            name: "My Object", //属性
+            getNameFunc: function() { //方法
+                return function() {
+                    return this.name;
+                }
+            }
+        }
+
+        console.log(object.getNameFunc()()); //The Window
+        // // 类似于
+        // var f = object.getNameFunc();
+        // var f = function() {
+        //     return this.name;
+        // }
+        // f();
+        // function(){this}()
+
+        //思考题 2：
+        var name = "The Window";
+        var object1 = {
+            name: "My Object",
+            getNameFunc1: function() {
+                var that = this;
+                return function() {
+                    return that.name;
+                }
+            }
+        }
+        console.log(object1.getNameFunc1()()); //My Object
+    </script>
+</body>
+
+</html>

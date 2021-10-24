@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+        
+        .w {
+            width: 10000px;
+            height: 1000px;
+        }
+        
+        ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .w ul li {
+            float: left;
+        }
+        
+        .arrow-l,
+        .arrow-r {
+            display: none;
+            position: absolute;
+            top: 40%;
+            margin-top: -20px;
+            width: 24px;
+            height: 40px;
+            background: rgba(0, 0, 0, .3);
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-family: 'icomoon';
+            font-size: 18px;
+            z-index: 2;
+        }
+        
+        .arrow-l {
+            left: 48px;
+        }
+        
+        .arrow-r {
+            right: 579px;
+        }
+        
+        .circle {
+            position: absolute;
+            bottom: 140px;
+            left: 50px;
+        }
+        
+        .circle li {
+            float: left;
+            width: 8px;
+            height: 8px;
+            /*background-color: #fff;*/
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            margin: 0 3px;
+            border-radius: 50%;
+            /*鼠标经过显示小手*/
+            cursor: pointer;
+        }
+        
+        .current {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">
+        <div class="test">
+            <!-- 左侧按钮 -->
+            <a href="javascript:;" class="arrow-l">&lt;</a>
+            <!-- 右侧按钮 -->
+            <a href="javascript:;" class="arrow-r">&gt; </a>
+            <!-- 核心的滚动区域 -->
+            <ul>
+                <li>
+                    <a href="#"><img src="upload/focus.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="upload/focus1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="upload/focus2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="upload/focus3.jpg" alt=""></a>
+                </li>
+            </ul>
+            <!-- 小圆圈 -->
+            <ol class="circle">
+            </ol>
+        </div>
+
+    </div>
+    <script>
+        //1. 获取元素
+        var w = document.querySelector('.w');
+        var arrowLeft = document.querySelector('.arrow-l');
+        var arrowRight = document.querySelector('.arrow-r');
+        //2. 鼠标经过focus 就显示隐藏左右按钮
+        w.addEventListener('mouseenter', function() {
+            arrowLeft.style.display = 'block';
+            arrowRight.style.display = 'block';
+        });
+        w.addEventListener('mouseleave', function() {
+            arrowLeft.style.display = 'none';
+            arrowRight.style.display = 'none';
+        });
+        //3. 动态生成小圆圈 有几张图片，我就生成几个小圆圈
+        var ul = w.querySelector('ul');
+        var ol = w.querySelector('ol');
+        console.log(ul.children.length);
+        for (var i = 0; i < ul.children.length; i++) {
+            //(1) 创建元素
+            var li = document.createElement('li');
+            //(2) 追加到ol里面
+            ol.appendChild(li);
+            //4. 小圆圈的排它思想 我们可以直接在生成小圆圈的同时直接绑定点击事件
+            li.addEventListener('click', function() {
+                //(1) 干点所有人 把所有的小li 清除 current 类名
+                for (var i = 0; i < ol.children.length; i++) {
+                    ol.children[i].className = '';
+                }
+                //(2) 留下我自己 当前的小li 设置current 类名
+                this.className = 'current';
+            });
+        }
+        //将第一个小圆圈 设置为默认选中状态 current
+        ol.children[0].className = 'current';
+    </script>
+</body>
+
+</html>

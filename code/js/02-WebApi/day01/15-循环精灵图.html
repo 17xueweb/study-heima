@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .box li {
+            margin: 15px;
+            float: left;
+            list-style: none;
+            width: 24px;
+            height: 24px;
+            background-color: pink;
+            background: url(images/sprite.png) no-repeat;
+        }
+        
+        .box {
+            width: 250px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        //1. 获取元素
+        var lis = document.querySelectorAll('li');
+        for (var i = 0; i < lis.length; i++) {
+            //让索引号 乘以 44 就是每个li 的背景y坐标 
+            var index = i * 44;
+            lis[i].style.backgroundPosition = '0 -' + index + 'px'; // x坐标 y坐标 因为往上走 是负的
+        }
+    </script>
+</body>
+
+</html>

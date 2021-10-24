@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 100px auto;
+            width: 500px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        th,
+        td {
+            border: 1px solid #333;
+        }
+        
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>科目</td>
+                <td>成绩</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        //1.准备数据
+        var datas = [{
+            name: '张三',
+            subject: 'JavaScript',
+            score: '100'
+        }, {
+            name: '李四',
+            subject: 'JavaScript',
+            score: '80'
+        }, {
+            name: '王五',
+            subject: 'JavaScript',
+            score: '70'
+        }];
+
+        var tbody = document.querySelector('tbody');
+        //往tbody 里面创建行： 有几个人（通过数组的长度）我们就创建几行
+        for (var i = 0; i < datas.length; i++) { // 外面的for循环管行 tr
+            //2.动态生成tr 根据datas数组的长度生成
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            //3.动态生成td
+            for (var k in datas[i]) { // 里面的for循环管列 td
+                var td = document.createElement('td');
+                //4. 插入数据
+                // console.log(datas[i][k]);
+                td.innerHTML = datas[i][k];
+                tr.appendChild(td);
+            }
+            //5. 生成删除列td
+            var deletetds = document.createElement('td');
+            deletetds.innerHTML = '<a href="javascript:;">删除</a>'
+            tr.appendChild(deletetds);
+        }
+
+        //6.删除操作
+        //(1) 获取所有的a
+        var as = document.querySelectorAll('a');
+        //(2)批量给所有的a 添加注册事件
+        for (var i = 0; i < as.length; i++) {
+            as[i].onclick = function() {
+                //node.removeChild(child)   this.parentNode.parentNode 为当前点击的tr
+                // console.log(this.parentNode.parentNode);
+                // 点击a 删除 当前a 所在的行(链接的爸爸的爸爸)  node.removeChild(child)  
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+    </script>
+</body>
+
+</html>

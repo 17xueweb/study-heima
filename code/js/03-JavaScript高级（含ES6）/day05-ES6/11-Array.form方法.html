@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1. 将类数组或可遍历对象转换为真正的数组
+        var arrayLike = {
+            "0": "1",
+            "1": "2",
+            "length": 2
+        }
+        var ary = Array.from(arrayLike);
+        console.log(ary); // ["1", "2"]
+
+        //2.方法还可以接受第二个参数，作用类似于数组的map方法，
+        //用来对每个元素进行处理，将处理后的值放入返回的数组。
+        var ary1 = Array.from(arrayLike, item => item * 2);
+        console.log(ary1); // [2, 4]
+    </script>
+</body>
+
+</html>

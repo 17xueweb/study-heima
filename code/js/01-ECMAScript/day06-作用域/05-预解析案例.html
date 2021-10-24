@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+
+        function f1() {
+            var a = b = c = 9;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+
+        //相当于执行以下代码
+        function f1() {
+            var a = b = c = 9; //相当于 var a=9; b=9;c=9; b和c直接赋值 没有var声明 当 全局变量看
+            //集体声明 var a=9,b=9,c=9
+            console.log(a);
+            console.log(b);
+            console.log(c);
+
+            //相当于以下代码
+            var a;
+            a = b = c = 9;
+            console.log(a); // 9
+            console.log(b); // 9
+            console.log(c); // 9
+        }
+        f1();
+        console.log(c); // 9
+        console.log(b); // 9
+        console.log(a); // a属于局部变量 外部不能调用 报错
+    </script>
+</body>
+
+</html>

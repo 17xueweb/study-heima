@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text"> <button>发送</button>
+    <script>
+        var btn = document.querySelector('button');
+        var num = 3; // 定义剩下的秒数
+        btn.addEventListener('click', function() {
+            this.disabled = true;
+            var timer = setInterval(function() {
+                if (num == 0) {
+                    //清除定时器和复原按钮
+                    clearInterval(timer);
+                    console.log(this); // window
+                    btn.innerHTML = '发送'; //这里的btn不能改成this 因为定时器this指向的是window
+                    num = 3; //这个3需要从新开始
+                    btn.disabled = false;
+                } else {
+                    btn.innerHTML = '还剩下' + num + '秒';
+                    num--;
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>

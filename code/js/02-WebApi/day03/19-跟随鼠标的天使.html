@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./images/angel.gif" alt="">
+    <script>
+        var img = document.querySelector('img');
+        document.addEventListener('mousemove', function(e) {
+            //1. mousemove只有我们鼠标移动1px 就会触发这个事件
+            var x = e.pageX;
+            var y = e.pageY;
+            console.log('x的坐标是：' + x + ' y的坐标是：' + y);
+            //2.核心原理： 每次鼠标移动，我们都会获得最新的鼠标坐标， 把这个x和y坐标做为图片的top和left 值就可以移动图片
+            //图片向上移动负的 和 向左移动负的 让鼠标居中图片 不能忘记添加px单位
+            img.style.left = x - 50 + 'px';
+            img.style.top = y - 40 + 'px';
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+
+        Star.prototype.sing = function() {
+                console.log("我会唱歌");
+            }
+            // Star.prototype.sex = "男"; // 注销ldh.sex 给构造函数原型对象加上sex也可以打印
+        Object.prototype.sex = "男"; //注销Star.prototype.sex 给Object加上依然也可以打印
+        var ldh = new Star("刘德华");
+        var zxy = new Star("张学友");
+        // ldh.sex = "男";
+        console.log(ldh.sex); // 刘德华有 则打印男
+        //Star和ldh都没有toString 但是Object有
+        console.log(ldh.toString()); //[object Object]
+    </script>
+</body>
+
+</html>

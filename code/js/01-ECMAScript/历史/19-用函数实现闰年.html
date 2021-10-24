@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function isRunYear(rn) {
+            var flag = false;
+            if ((rn % 4 == 0 && rn % 100 != 0) || rn % 400 == 0) {
+                flag = true;
+            }
+            return flag;
+
+        }
+
+
+        var rn = prompt('请输入一个年份：');
+        var str = isRunYear(rn);
+        if (str == true) {
+            alert('这是闰年');
+        } else {
+            alert('这是平年');
+        }
+        console.log(str);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

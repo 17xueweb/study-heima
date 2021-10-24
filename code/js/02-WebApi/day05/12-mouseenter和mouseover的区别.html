@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 300px;
+            height: 300px;
+            background-color: purple;
+        }
+        
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">
+
+        </div>
+    </div>
+    <script>
+        var father = document.querySelector('.father');
+        //mouseenter必须经过自己的盒子 才会触发事件
+        //mouseover 有冒泡
+        father.addEventListener('mouseover', function() {
+            console.log(11);
+        });
+    </script>
+</body>
+
+</html>

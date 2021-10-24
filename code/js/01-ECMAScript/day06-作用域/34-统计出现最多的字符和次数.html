@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 有一个对象 来判断是否有该属性 对象['属性名']
+        var obj = {
+            age: 18
+        }
+        if (obj['age']) {
+            console.log('里面有该属性');
+        } else {
+            console.log('里面没有该属性');
+        }
+        console.log('--------------');
+        var str = 'abcoefoxyozzopp';
+        var o = {};
+        for (var i = 0; i < str.length; i++) {
+            var charts = str.charAt(i); // charts 是字符串加引号的 所以不能用o.charts只能有o['a']
+            if (o[charts]) { // o[charts] 得到的是属性值
+                o[charts]++;
+            } else {
+                o[charts] = 1;
+            }
+        }
+        console.log(o);
+        var max = 0;
+        var ch = '';
+        //遍历对象
+        for (var k in o) {
+            if (o[k] > max) {
+                max = o[k];
+                ch = k;
+            }
+        }
+        console.log(max);
+        console.log('最多的字符是：' + ch);
+    </script>
+</body>
+
+</html>

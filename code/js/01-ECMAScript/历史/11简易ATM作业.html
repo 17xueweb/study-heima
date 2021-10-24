@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var save = 100;
+        for (var i = 0; i < 100; i++) {
+            var money = prompt('请输入您要的操作：' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+            if (money == '1') {
+                var saveNew = prompt('请输入存入的钱数：');
+                save = parseInt(saveNew) + parseInt(save);
+                alert('您现在的钱数是：' + save);
+            } else if (money == '2') {
+                var saveNew = prompt('请输入存入的钱数：');
+                save = save - saveNew;
+                alert('您现在的钱数是：' + save);
+            } else if (money == '3') {
+                alert('您现在的钱数是：' + save);
+            } else if (money == '4') {
+                alert('您正在退出');
+                break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // (1)使用const关键字声明的常量具有块级作用域
+        if (true) {
+            const a = 10;
+            if (true) {
+                const a = 20;
+                console.log(a); // 20
+            }
+            console.log(a); // 10
+        }
+        console.log(a); // a is not defined
+
+        // (2) 使用const关键字声明常量 必须赋初始值
+        const PI; //Uncaught SyntaxError: Missing initializer in const declaration
+        const PI = 3.14; // 正常
+
+        // (3) const关键字常量声明后 值不可更改
+        //第一种情况：基本数据类型 值就是不可以更改
+        const PI = 3.14;
+        PI = 100; // Uncaught TypeError: Assignment to constant variable.
+
+        //第二种情况：复杂数据类型 数据结构内部的值可以更改，但是数据值本身不可更改
+        const arry = [100, 200];
+        arry[0] = 123;
+        console.log(arry); // [123, 200]
+        // 此操作改变了array常量在内存中的存储地址
+        arry = [1, 2]; // Uncaught TypeError: Assignment to constant variable.
+    </script>
+</body>
+
+</html>

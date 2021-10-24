@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1. ES6新增的创建字符串的方式，使用反引号定义。
+        let str = `我是模板字符串`;
+        console.log(str);
+
+        //2. 模板字符串中可以解析变量。
+        let name = `张三`;
+        let sayHi = `Hello, 我的名字叫${name}`;
+        console.log(sayHi); // Hello, 我的名字叫张三
+
+        //3. 模板字符串中可以换行
+        let result = {
+            name: "zhangsan",
+            age: 20
+        }
+        let html = `
+        <div>
+            <span>${result.name}</span>
+            <span>${result.age}</span>
+        </div>
+        `;
+        console.log(html);
+
+        //4. 在模板字符串中可以调用函数。
+        const fn = () => {
+            return '我是fn函数';
+        }
+
+        let html1 = `我是模板字符串 ${fn()}`;
+        console.log(html1);
+    </script>
+</body>
+
+</html>

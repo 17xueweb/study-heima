@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+    }
+    
+    .change {
+        background-color: purple;
+        margin-top: 50px;
+        font-size: 30px;
+    }
+</style>
+
+<body>
+    <div class="first">文本</div>
+    <script>
+        var div = document.querySelector('div');
+        div.onclick = function() {
+                //我们通过 修改元素的className更改元素样式
+                div.className = 'change';
+            }
+            //如果想要保留原先的类名，我们可以这么做
+            // div.className = 'first change'
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 980px;
+            height: 455px;
+            margin-left: 219px;
+            margin-top: 10px;
+        }
+        
+        .focus {
+            position: relative;
+            width: 721px;
+            height: 455px;
+            background-color: purple;
+            overflow: hidden;
+        }
+        
+        .focus ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 600%;
+        }
+        
+        .focus ul li {
+            float: left;
+        }
+        
+        .arrow-l,
+        .arrow-r {
+            /* display: none; */
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+            width: 24px;
+            height: 40px;
+            background: rgba(0, 0, 0, .3);
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-family: 'icomoon';
+            font-size: 18px;
+            z-index: 2;
+        }
+        
+        .arrow-r {
+            right: 0;
+        }
+        
+        .circle {
+            position: absolute;
+            bottom: 10px;
+            left: 50px;
+        }
+        
+        .circle li {
+            float: left;
+            width: 8px;
+            height: 8px;
+            /*background-color: #fff;*/
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            margin: 0 3px;
+            border-radius: 50%;
+            /*鼠标经过显示小手*/
+            cursor: pointer;
+        }
+        
+        .current {
+            background-color: #fff;
+        }
+        /*清除元素默认的内外边距  */
+        
+        * {
+            margin: 0;
+            padding: 0
+        }
+        /*去掉列表前面的小点*/
+        
+        li {
+            list-style: none;
+        }
+        /*图片没有边框   去掉图片底侧的空白缝隙*/
+        /*取消链接的下划线*/
+        
+        a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #e33333;
+        }
+        /*清除浮动*/
+        
+        .clearfix:after {
+            visibility: hidden;
+            clear: both;
+            display: block;
+            content: ".";
+            height: 0
+        }
+        
+        .clearfix {
+            *zoom: 1
+        }
+        /*公共样式*/
+        
+        .fl {
+            float: left;
+        }
+        /*版心*/
+        
+        .w {
+            width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="./animate.js"></script>
+
+</head>
+
+<body>
+    <!-- main 模块 -->
+    <div class="w">
+        <div class="main">
+            <div class="focus fl">
+                <!-- 左侧按钮 -->
+                <a href="javascript:;" class="arrow-l">
+                    &lt;
+                 </a>
+                <!-- 右侧按钮 -->
+                <a href="javascript:;" class="arrow-r"> &gt; </a>
+                <!-- 核心的滚动区域 -->
+                <ul>
+                    <li>
+                        <a href="#"><img src="upload/focus.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="upload/focus1.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="upload/focus2.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="upload/focus3.jpg" alt=""></a>
+                    </li>
+                </ul>
+                <!-- 小圆圈 -->
+                <ol class="circle">
+
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script>
+        //1. 获取元素
+        var w = document.querySelector('.main');
+        var arrowLeft = document.querySelector('.arrow-l');
+        var arrowRight = document.querySelector('.arrow-r');
+        var focus = document.querySelector('.focus');
+        var focusWidth = focus.offsetWidth;
+        //2. 鼠标经过focus 就显示隐藏左右按钮
+        w.addEventListener('mouseenter', function() {
+            arrowLeft.style.display = 'block';
+            arrowRight.style.display = 'block';
+            //鼠标经过 清除定时器
+            clearInterval(timer);
+        });
+        w.addEventListener('mouseleave', function() {
+            arrowLeft.style.display = 'none';
+            arrowRight.style.display = 'none';
+            //鼠标离开 开启定时器 自动播放
+            timer = setInterval(function() {
+                //手动调用点击事件
+                arrowRight.click();
+            }, 2000);
+
+        });
+        //3. 动态生成小圆圈 有几张图片，我就生成几个小圆圈
+        var ul = w.querySelector('ul');
+        var ol = w.querySelector('ol');
+        console.log(ul.children.length);
+        for (var i = 0; i < ul.children.length; i++) {
+            //(1) 创建元素
+            var li = document.createElement('li');
+            //动态生成li的自定义属性,方便 点击li展示对应的图片
+            li.setAttribute('index', i);
+            //(2) 追加到ol里面
+            ol.appendChild(li);
+            //4. 小圆圈的排它思想 我们可以直接在生成小圆圈的同时直接绑定点击事件
+            li.addEventListener('click', function() {
+                //(1) 干点所有人 把所有的小li 清除 current 类名
+                for (var i = 0; i < ol.children.length; i++) {
+                    ol.children[i].className = '';
+                }
+                //(2) 留下我自己 当前的小li 设置current 类名
+                this.className = 'current';
+                console.log(this.getAttribute('index'));
+                var index = this.getAttribute('index');
+                // 当我们点击了某个小li 就要把这个li 的索引号给 num
+                num = index;
+                // 当我们点击了某个小li 就要把这个li 的索引号给 circle
+                circle = index;
+                // var focusWidth = focus.offsetWidth; 移动到上面作为全局变量
+                //获取图片的大小
+                console.log(focus.offsetWidth);
+                //5.点击小圆圈，页面滚动
+                animate(ul, -index * focusWidth);
+
+            });
+        }
+        //将第一个小圆圈 设置为默认选中状态 current
+        ol.children[0].className = 'current';
+        //6. 克隆第一张图片（li)放到ul最后面
+        var first = ul.children[0].cloneNode(true);
+        ul.appendChild(first);
+        //7.点击右侧按钮，页面滚动
+        var num = 0;
+        //circle控制小圆圈的播放
+        var circle = 0;
+        //flag 节流阀
+        var flag = true;
+        arrowRight.addEventListener('click', function() {
+            if (flag) {
+                flag = false; // 关闭节流阀
+                // 如果走到了最后复制的那张图片，此时 我们的ul 要快速复原 left改为 0
+                if (num == ul.children.length - 1) {
+                    ul.style.left = 0;
+                    num = 0;
+                }
+                num++;
+                animate(ul, -num * focusWidth, function() {
+                    flag = true;
+                });
+                //8. 点击右侧按钮，小圆圈跟随一起变化 可以再声明一个变量控制小圆圈播放
+                circle++;
+                //如果circle == 4 说明走到最后我们克隆的这张图片了 我们就复原
+                if (circle == ol.children.length) {
+                    circle = 0;
+                }
+                //调用函数
+                circleChange();
+            }
+
+        });
+
+        //9. 左侧按钮实现
+        arrowLeft.addEventListener('click', function() {
+            if (flag) {
+                flag = false;
+                // 如果走到了第一张图片，我们ul的left要改为 最后一张图片
+                if (num == 0) {
+                    ul.style.left = -(ul.children.length - 1) * focusWidth + 'px'; //(索引号*图片宽度)
+                    num = ul.children.length - 1; //最后一张图片的 索引号
+                }
+                num--;
+                animate(ul, -num * focusWidth, function() {
+                    flag = true;
+                });
+                //点击右侧按钮，小圆圈跟随一起变化 可以再声明一个变量控制小圆圈播放
+                circle--;
+                //circle-- 会有负数 如果circle < 0 
+                if (circle < 0) {
+                    // circle = 3;
+                    circle = ol.children.length - 1;
+                }
+                //调用函数
+                circleChange();
+
+
+            }
+
+        });
+
+        function circleChange() {
+            // 先清除小圆圈的current类名
+            for (var i = 0; i < ol.children.length; i++) {
+                ol.children[i].className = '';
+            }
+            // 留下当前的小圆圈的current类名
+            ol.children[circle].className = 'current';
+        }
+
+        // 10. 自动播放轮播图
+        var timer = setInterval(function() {
+            //手动调用点击事件
+            arrowRight.click();
+        }, 2000);
+    </script>
+</body>
+
+</html>
+
+
+</html>

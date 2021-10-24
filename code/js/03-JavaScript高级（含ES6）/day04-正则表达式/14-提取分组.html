@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //这里name是占位符
+        var str = '<div>我是{{name}}</div>';
+        //+表示字符可以连续重复多次
+        var pattern = /{{([a-zA-Z]+)}}/;
+        var result = pattern.exec(str);
+        console.log(result); //["{{name}}", "name", index: 7, input: "<div>我是{{name}}</div>", groups: undefined]
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //箭头函数没有自己的this 箭头函数中的this指向箭头函数定义区域obj
+        //obj是一个对象 不能产生作用域 所以箭头函数实际上被定义在全局作用域下
+        //所以在调用say方法this指向的是window，而在window下没有age属性 所以为undefined
+
+        // var age = 100;
+        var obj = {
+            age: 20,
+            say: () => {
+                alert(this.age) // undefined
+            }
+        }
+
+        obj.say();
+    </script>
+</body>
+
+</html>

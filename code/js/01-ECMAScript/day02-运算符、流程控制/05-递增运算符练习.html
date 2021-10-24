@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = 10;
+        ++a; // 单独使用 11
+        var b = ++a + 2; // 12 + 2
+        console.log(b); // 14
+
+        var c = 10;
+        c++; // 11
+        var d = c++ + 2; //返回原值后再加1 11 + 2 = 13
+        console.log(d); // 13
+
+        var e = 10;
+        // 1. e++ = 10  , e = 11
+        // 2. ++e = 12
+        var f = e++ + ++e; // 10 + 12 = 22
+        console.log(f);
+    </script>
+</body>
+
+</html>

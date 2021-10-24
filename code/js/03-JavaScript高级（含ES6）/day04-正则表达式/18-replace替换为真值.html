@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var data = {
+            name: "张三",
+            age: 30
+        };
+        var str = '<div>{{name}}今年{{ age }}岁了</div>';
+        //\s匹配任意空白字符 *代表0个或者多个
+        //+表示字符可以连续重复多次
+        var partten = /{{\s*([a-zA-Z]+)\s*}}/;
+        var parttenResult = null;
+        while (parttenResult = partten.exec(str)) {
+            //parttenResult[1] == name
+            //data[name]
+            str = str.replace(parttenResult[0], data[parttenResult[1]]);
+        }
+        console.log(str); // <div>张三今年30岁了</div>
+    </script>
+</body>
+
+</html>
