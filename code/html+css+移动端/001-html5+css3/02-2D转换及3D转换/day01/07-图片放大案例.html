@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-图片放大案例.html</title>
+    <style>
+        div {
+            float: left;
+            margin: 10px;
+            /* 鼠标移动到上方 图片超出div了  要隐藏掉 */
+            overflow: hidden;
+        }
+        /* 谁做过渡 给谁加 */
+        
+        div img {
+            transition: all 0.4s;
+        }
+        
+        div img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="#"><img src="./media/scale.jpg" alt=""></a>
+    </div>
+    <div>
+        <a href="#"><img src="./media/scale.jpg" alt=""></a>
+    </div>
+    <div>
+        <a href="#"><img src="./media/scale.jpg" alt=""></a>
+    </div>
+</body>
+
+</html>

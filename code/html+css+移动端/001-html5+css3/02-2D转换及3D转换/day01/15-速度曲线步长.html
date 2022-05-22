@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-速度曲线步长.html</title>
+    <style>
+        div {
+            font-size: 20px;
+            width: 0;
+            height: 30px;
+            /* background-color: pink; */
+            /* 重要：让我们文字强制一行内显示 */
+            white-space: nowrap;
+            overflow: hidden;
+            /* steps 就是分几步来完成我们的动画 有了steps 就不要写 ease 或者linear */
+            animation: w 4s steps(10) forwards;
+        }
+        
+        @keyframes w {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>世纪佳缘我在这里等你</div>
+</body>
+
+</html>

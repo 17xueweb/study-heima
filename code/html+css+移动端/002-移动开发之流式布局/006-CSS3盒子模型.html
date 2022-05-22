@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            padding: 10px;
+            border: 10px solid red;
+        }
+        
+        div:nth-child(2) {
+            /* 有了这句话就让盒子变成css3盒子模型 */
+            box-sizing: border-box;
+            /* padding 和 border 不会再撑大盒子了 */
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            padding: 10px;
+            border: 10px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+</body>
+
+</html>

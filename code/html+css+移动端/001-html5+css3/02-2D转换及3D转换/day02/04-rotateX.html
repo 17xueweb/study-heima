@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-rotateX.html</title>
+    <style>
+        body {
+            perspective: 300px;
+        }
+        
+        img {
+            display: block;
+            /* img是行内元素  转换为行内块才能给外边距 */
+            margin: 100px auto;
+            transition: all 1s;
+        }
+        
+        img:hover {
+            transform: rotateX(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./media/pig.jpg" alt="">
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="btnGET">GET</button>
+    <button id="btnPOST">POST</button>
+    <button id="btnJSONP">JSONP</button>
+
+    <script>
+        $(function() {
+            // 测试GET接口
+            $("#btnGET").on('click', function() {
+                $.ajax({
+                    url: 'http://127.0.0.1/api/get',
+                    type: 'get',
+                    data: {
+                        name: 'zs',
+                        age: 20
+                    },
+                    success: function(res) {
+                        console.log(res);
+                    }
+                });
+            });
+
+            // 测试POST接口
+            $("#btnPOST").on('click', function() {
+                $.ajax({
+                    url: 'http://127.0.0.1/api/post',
+                    type: 'post',
+                    data: {
+                        bookname: '水浒传',
+                        author: '施耐庵'
+                    },
+                    success: function(res) {
+                        console.log(res);
+                    }
+                });
+            });
+
+            // 为JSONP按钮绑定点击事件处理函数
+            $("#btnJSONP").on('click', function() {
+                $.ajax({
+                    url: 'http://127.0.0.1/api/jsonp',
+                    type: 'get',
+                    dataType: 'jsonp',
+                    success: function(res) {
+                        console.log(res);
+                    }
+                });
+            });
+
+        })
+    </script>
+</body>
+
+</html>

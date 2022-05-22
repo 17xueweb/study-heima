@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-rotateZ.html</title>
+    <style>
+        img {
+            display: block;
+            margin: 100px auto;
+            transition: all 1s;
+        }
+        
+        img:hover {
+            /* transform: rotateZ(180deg); */
+            /* transform: rotate3d(x,y,z,deg); */
+            /* 1.沿着x轴旋转 */
+            /* transform: rotate3d(1, 0, 0, 45deg); */
+            /* 2.沿着y轴旋转 */
+            /* transform: rotate3d(0, 1, 0, 45deg); */
+            /* 3.沿着对角线旋转 */
+            transform: rotate3d(1, 1, 0, 45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./media/pig.jpg" alt="">
+</body>
+
+</html>

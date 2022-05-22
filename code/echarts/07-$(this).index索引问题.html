@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-$(this).indx索引问题）</title>
+    <script src="./charts-project/js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>第一个h1</h1>
+        <h1>第二个h1</h1>
+        <p>屁1</p>
+        <p>屁2</p>
+        <p>屁3</p>
+    </div>
+    <script>
+        $("div p").on('click', function() {
+            console.log($(this).index()); // 2 因为前面有两个h1 其实获取的是它的编号
+        })
+    </script>
+</body>
+
+</html>

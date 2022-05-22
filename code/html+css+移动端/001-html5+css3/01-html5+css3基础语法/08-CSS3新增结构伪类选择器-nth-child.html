@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.把所有偶数的孩子选出来 */
+        
+        ul li:nth-child(even) {
+            background-color: #ccc;
+        }
+        /* 2.把所有奇数的孩子选出来 */
+        
+        ul li:nth-child(odd) {
+            background-color: gray;
+        }
+        /* 3. nth-child(n) 从0开始 每次加1 往后面计算 这里面必须是n 不能是其他的字母  */
+        /* ol li:nth-child(n) {
+            background-color: pink;
+        } */
+        /* 4. nth-child(2n) 选择了所有的偶数的孩子 等价于 even  */
+        /* ol li:nth-child(2n) {
+            background-color: pink;
+        } */
+        /* 5. nth-child(2n+1) 选择了所有的奇数的孩子 等价于 odd  */
+        /* ol li:nth-child(2n+1) {
+            background-color: pink;
+        } */
+        
+        ol li:nth-child(n+3) {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>我是第个1孩子</li>
+        <li>我是第个2孩子</li>
+        <li>我是第个3孩子</li>
+        <li>我是第个4孩子</li>
+        <li>我是第个5孩子</li>
+        <li>我是第个6孩子</li>
+        <li>我是第个7孩子</li>
+        <li>我是第个8孩子</li>
+    </ul>
+    <ol>
+        <li>我是第个1孩子</li>
+        <li>我是第个2孩子</li>
+        <li>我是第个3孩子</li>
+        <li>我是第个4孩子</li>
+        <li>我是第个5孩子</li>
+        <li>我是第个6孩子</li>
+        <li>我是第个7孩子</li>
+        <li>我是第个8孩子</li>
+    </ol>
+</body>
+
+</html>
