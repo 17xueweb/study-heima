@@ -12,7 +12,7 @@ const fs = require("fs");
 // });
 
 // 移植性非常差，不利于维护
-// fs.readFile('Users/ruanlucheng/learn/web/study_heima_web/code/node/day01/05-演示路径的问题.js', 'utf8', function(err, dataStr) {
+// fs.readFile('Users/learn/web/study_heima_web/code/node/day01/05-演示路径的问题.js', 'utf8', function(err, dataStr) {
 //     if (err) {
 //         return console.log('文件读取失败' + err);
 //     }
