@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            color: pink;
+            /* 行高的继承 */
+            /* font: 12px/24px 'Microsoft YaHei'; */
+            /* 行高为12 * 1.5 = 18 */
+            font: 12px/1.5 'Microsoft YaHei';
+        }
+        div {
+            /* 子元素继承了父元素 body 的行高 1.5 */
+            /* 这个1.5 就是当前元素文字大小 font-size 的1.5倍 14*1.5=21 */
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div>粉红色的回忆</div>
+    <p>粉红色的回忆</p>
+</body>
+</html>

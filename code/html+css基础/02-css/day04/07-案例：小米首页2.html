@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 清除内外边距 ul和li默认有内外边距 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .box {
+            width: 1226px;
+            height: 285px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+        .box li {
+            float: left;
+            width: 296px;
+            height: 285px;
+            background-color: purple;
+            margin-right: 14px;
+        }
+        /* 注意这块的权重 */
+        .box .last {
+            /* 利用层叠性把 最后一个外边距去掉 */
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <ul class="box">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li class="last"></li>
+    </ul>
+</body>
+</html>
