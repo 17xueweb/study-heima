@@ -7,16 +7,20 @@
 
     <child-a/>
 
+    <child-b/>
+
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 import ChildA from './components/child-a.vue'
+import ChildB from './components/child-b.vue'
 export default {
   name: 'App',
   components: {
-    ChildA
+    ChildA,
+    ChildB
   },
   computed: {
     // count() {
