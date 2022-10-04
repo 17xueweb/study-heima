@@ -1,0 +1,13 @@
+<!-- 按钮组件的基本使用 -->
+<!-- 通过type属性指定按钮颜色类型 -->
+<button>普通按钮</button>
+<button type="primary">主色调按钮</button>
+<button type="warn">警告按钮</button>
+<!-- size="mini" 小尺寸按钮 -->
+<button size="mini">普通按钮</button>
+<button type="primary" size="mini">主色调按钮</button>
+<button type="warn" size="mini">警告按钮</button>
+<!-- plain 镂空按钮 -->
+<button size="mini" plain>普通按钮</button>
+<button type="primary" size="mini" plain>主色调按钮</button>
+<button type="warn" size="mini" plain>警告按钮</button>

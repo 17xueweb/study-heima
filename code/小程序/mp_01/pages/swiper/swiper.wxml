@@ -1,0 +1,22 @@
+<!--pages/swiper/swiper.wxml-->
+<!-- 轮播图结构 -->
+<swiper class="swiper-container" 
+    indicator-dots
+    indicator-color="#fff"
+    indicator-active-color="gray"
+    autoplay
+    interval="1000"
+    circular>
+    <!-- 第一个轮播图 -->
+    <swiper-item>
+        <view class="item">A</view>
+    </swiper-item>
+    <!-- 第二个轮播图 -->
+    <swiper-item>
+        <view class="item">B</view>
+    </swiper-item>
+    <!-- 第三个轮播图 -->
+    <swiper-item>
+        <view class="item">C</view>
+    </swiper-item>
+</swiper>

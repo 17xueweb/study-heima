@@ -1,0 +1,9 @@
+<!-- 常用的基础内容组件text和rich-text的用法 -->
+<view>
+    <!-- 手机号支持长按选中效果 -->
+    <text selectable>13345678978</text>
+</view>
+
+<rich-text nodes="<h1 style='color:red;'>标题</h1>"></rich-text>
+
+
