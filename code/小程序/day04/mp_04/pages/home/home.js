@@ -7,6 +7,15 @@ Page({
   data: {
     count: 0
   },
+  getChild() {
+    const child = this.selectComponent('.customA')
+    // console.log(child);
+    // 这里不能使用this
+    // child.setData({
+    //   count: child.properties.count + 1
+    // })
+    child.addCount()
+  },
   syncCount(e) {
     console.log(e);
     this.setData({

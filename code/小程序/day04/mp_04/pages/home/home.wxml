@@ -12,6 +12,8 @@
     <view slot="after">~~~~</view>
 </my-test4> -->
 
-<my-test5 count="{{count}}" bind:sync="syncCount"></my-test5>
+<my-test5 count="{{count}}" bind:sync="syncCount" class="customA" id="cA"></my-test5>
 <view>~~~~~~~~~~~~~~~~~~~</view>
 <view>父组件中，count值是{{count}}</view>
+
+<button bindtap="getChild">获取子组件的实例对象</button>
