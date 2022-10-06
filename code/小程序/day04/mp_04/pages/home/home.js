@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    count: 0
+  },
+  syncCount(e) {
+    console.log(e);
+    this.setData({
+      count: e.detail.value
+    })
   },
 
   /**
