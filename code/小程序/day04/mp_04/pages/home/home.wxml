@@ -1,0 +1,8 @@
+<!--pages/home/home.wxml-->
+<!-- <text class="g-red-text">pages/home/home.wxml</text> -->
+<!-- <view></view>
+<my-test1 max="9"></my-test1> -->
+
+<!-- <my-test2></my-test2> -->
+
+<my-test3></my-test3>
