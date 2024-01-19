@@ -1,4 +1,4 @@
-/* pages/home/home.wxss */
+  /* pages/home/home.wxss */
 swiper {
   height: 350rpx;
 }
