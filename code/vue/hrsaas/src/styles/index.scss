@@ -1,8 +1,8 @@
-@import './variables.scss';
-@import './mixin.scss';
-@import './transition.scss';
+@import './variables.scss'; // 变量
+@import './mixin.scss'; // 混入样式
+@import './transition.scss'; // 过渡动画
 @import './element-ui.scss';
-@import './sidebar.scss';
+@import './sidebar.scss'; // 左侧导航样式
 
 body {
   height: 100%;
